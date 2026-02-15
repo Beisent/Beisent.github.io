@@ -29,7 +29,7 @@
   <div class="doc-layout">
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-inner">
-        <div class="nav-group"><a href="api-reference.html" class="nav-link">API Reference</a><a href="changelog.html" class="nav-link">Changelog</a><a href="getting-started.html" class="nav-link active">Getting Started</a><a href="markdown-guide.html" class="nav-link">Markdown Guide</a><a href="math-examples.html" class="nav-link">Math Formulas</a></div><details class="nav-section"><summary class="nav-section-title">Guides</summary><div class="nav-section-content"><a href="guides/installation.html" class="nav-link">Installation</a><details class="nav-section"><summary class="nav-section-title">Advanced</summary><div class="nav-section-content"><a href="guides/advanced/plugins.html" class="nav-link">Plugins</a></div></details></div></details><details class="nav-section"><summary class="nav-section-title">API Reference</summary><div class="nav-section-content"><a href="api/endpoints.html" class="nav-link">Endpoints</a></div></details>
+        <div class="nav-group"><a href="getting-started.html" class="nav-link active">Getting Started</a><a href="api-reference.html" class="nav-link">API 参考</a><a href="changelog.html" class="nav-link">更新日志</a><a href="markdown-guide.html" class="nav-link">Markdown Guide</a><a href="math-examples.html" class="nav-link">Math Formulas</a></div><details class="nav-section"><summary class="nav-section-title">指南</summary><div class="nav-section-content"><a href="guides/installation.html" class="nav-link">安装与配置</a></div></details>
       </div>
     </aside>
 
@@ -37,34 +37,44 @@
       <nav class="breadcrumbs"><a href="index.html" class="breadcrumb-link">Home</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Getting Started</span></nav>
       <article class="prose">
         <h1 id="getting-started"><a class="anchor" href="#getting-started">#</a> Getting Started</h1>
-<p>Welcome to <strong>BeisentDocs</strong>! This is a lightweight documentation site generator that converts Markdown to beautiful HTML pages.</p>
-<h2 id="features"><a class="anchor" href="#features">#</a> Features</h2>
-<ul><li>Pure Python, zero external dependencies</li><li>Code syntax highlighting (via Highlight.js)</li><li>Math formula rendering (via KaTeX)</li><li>Sidebar navigation & table of contents</li><li>Responsive design with dark/light mode</li><li>Admonition blocks (NOTE, TIP, WARNING, etc.)</li></ul>
-<h2 id="installation"><a class="anchor" href="#installation">#</a> Installation</h2>
-<p>No installation required! Just run:</p>
-<pre><code class="language-bash">python build.py</code></pre>
-<p>Then open <code>dist/index.html</code> in your browser, or serve it:</p>
-<pre><code class="language-bash">python -m http.server -d dist 8000</code></pre>
-<h2 id="writing-documents"><a class="anchor" href="#writing-documents">#</a> Writing Documents</h2>
-<p>Create <code>.md</code> files inside the <code>docs/</code> directory. Each file can have optional YAML front-matter:</p>
-<pre><code class="language-yaml">---
-title: My Document
-description: A brief description
-tag: guide
----</code></pre>
-<h2 id="quick-example"><a class="anchor" href="#quick-example">#</a> Quick Example</h2>
-<p>Here is a simple Python function:</p>
-<pre><code class="language-python">def fibonacci(n: int) -&gt; list[int]:
-    &quot;&quot;&quot;Generate Fibonacci sequence.&quot;&quot;&quot;
-    fib = [0, 1]
-    for i in range(2, n):
-        fib.append(fib[i-1] + fib[i-2])
-    return fib[:n]
+<p><strong>BeisentDocs</strong> 是一个轻量级的 Markdown 文档站点生成器，使用纯 Python 实现，零外部依赖。它将 <code>docs/</code> 目录中的 Markdown 文件转换为美观的静态 HTML 文档网站。</p>
+<h2 id="核心特性"><a class="anchor" href="#核心特性">#</a> 核心特性</h2>
+<ul><li><strong>零依赖</strong> — 仅使用 Python 标准库，无需 <code>pip install</code></li><li><strong>Markdown 解析</strong> — 支持 GFM 表格、任务列表、脚注、高亮文本等扩展语法</li><li><strong>代码高亮</strong> — 通过 Highlight.js 支持多语言语法高亮</li><li><strong>数学公式</strong> — 通过 KaTeX 渲染行内公式 <code><span class="math-inline">\(...\)</span></code> 和块级公式 <code>$$...$$</code></li><li><strong>提示块</strong> — 支持 NOTE、TIP、WARNING、IMPORTANT、CAUTION 五种提示块样式</li><li><strong>自动导航</strong> — 自动生成侧边栏导航、面包屑和页内目录（TOC）</li><li><strong>响应式设计</strong> — 适配桌面和移动端</li><li><strong>开发服务器</strong> — 内置 HTTP 服务器和文件监听自动重建</li></ul>
+<h2 id="快速开始"><a class="anchor" href="#快速开始">#</a> 快速开始</h2>
+<p><strong>前置条件：</strong> Python 3.10+</p>
+<pre><code class="language-bash"># 1. 克隆项目
+git clone https://github.com/beisent/BeisentDocs.git
+cd BeisentDocs
 
-print(fibonacci(10))
-# [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</code></pre>
-<blockquote class="admonition admonition-tip"><p class="admonition-title">TIP</p><p>You can use admonition blocks to highlight important information!</p></blockquote>
-<blockquote class="admonition admonition-note"><p class="admonition-title">NOTE</p><p>Documents are automatically collected and indexed.</p></blockquote>
+# 2. 构建静态站点
+python build.py
+
+# 3. 本地预览（默认端口 8000）
+python build.py serve</code></pre>
+<p>在浏览器中打开 <code>http://localhost:8000</code> 即可查看生成的文档站点。</p>
+<h2 id="开发模式"><a class="anchor" href="#开发模式">#</a> 开发模式</h2>
+<p>Watch 模式会监听 <code>docs/</code> 目录的变化，自动触发重建：</p>
+<pre><code class="language-bash">python build.py watch</code></pre>
+<h2 id="项目结构"><a class="anchor" href="#项目结构">#</a> 项目结构</h2>
+<pre><code>BeisentDocs/
+├── build.py              # 构建脚本（Markdown 解析器 + 站点生成器）
+├── config.json           # 站点配置（导航链接等）
+├── docs/                 # Markdown 源文件目录
+│   ├── getting-started.md
+│   ├── guides/
+│   │   ├── _index.md     # 分区元数据
+│   │   └── installation.md
+│   └── ...
+├── templates/            # HTML 页面模板
+│   ├── index.html        # 首页模板
+│   ├── doc.html          # 文档页模板
+│   └── section.html      # 分区页模板
+├── static/               # 静态资源
+│   ├── css/style.css
+│   └── js/main.js
+└── dist/                 # 构建输出目录（自动生成）</code></pre>
+<h2 id="下一步"><a class="anchor" href="#下一步">#</a> 下一步</h2>
+<ul><li><a href="guides/installation.html">安装与配置</a> — 详细的配置说明和目录组织方式</li><li><a href="markdown-guide.html">Markdown 语法指南</a> — 支持的 Markdown 语法完整参考</li><li><a href="math-examples.html">数学公式示例</a> — KaTeX 数学公式渲染示例</li><li><a href="api-reference.html">API 参考</a> — MarkdownParser 和 SiteBuilder 的编程接口</li></ul>
       </article>
       <footer class="doc-footer">
         <p>&copy; 2025 Beisent Lab</p>
@@ -72,7 +82,7 @@ print(fibonacci(10))
     </main>
 
     <aside class="toc-sidebar" id="toc-sidebar">
-      <nav class="toc"><h4>On this page</h4><ul><li style="padding-left:0px"><a href="#getting-started" class="toc-link" data-level="1">Getting Started</a></li><li style="padding-left:12px"><a href="#features" class="toc-link" data-level="2">Features</a></li><li style="padding-left:12px"><a href="#installation" class="toc-link" data-level="2">Installation</a></li><li style="padding-left:12px"><a href="#writing-documents" class="toc-link" data-level="2">Writing Documents</a></li><li style="padding-left:12px"><a href="#quick-example" class="toc-link" data-level="2">Quick Example</a></li></ul></nav>
+      <nav class="toc"><h4>On this page</h4><ul><li style="padding-left:0px"><a href="#getting-started" class="toc-link" data-level="1">Getting Started</a></li><li style="padding-left:12px"><a href="#核心特性" class="toc-link" data-level="2">核心特性</a></li><li style="padding-left:12px"><a href="#快速开始" class="toc-link" data-level="2">快速开始</a></li><li style="padding-left:12px"><a href="#开发模式" class="toc-link" data-level="2">开发模式</a></li><li style="padding-left:12px"><a href="#项目结构" class="toc-link" data-level="2">项目结构</a></li><li style="padding-left:12px"><a href="#下一步" class="toc-link" data-level="2">下一步</a></li></ul></nav>
     </aside>
   </div>
 

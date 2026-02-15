@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Changelog - BeisentDocs</title>
+  <title>更新日志 - BeisentDocs</title>
   <link rel="stylesheet" href="static/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -29,24 +29,23 @@
   <div class="doc-layout">
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-inner">
-        <div class="nav-group"><a href="api-reference.html" class="nav-link">API Reference</a><a href="changelog.html" class="nav-link active">Changelog</a><a href="getting-started.html" class="nav-link">Getting Started</a><a href="markdown-guide.html" class="nav-link">Markdown Guide</a><a href="math-examples.html" class="nav-link">Math Formulas</a></div><details class="nav-section"><summary class="nav-section-title">Guides</summary><div class="nav-section-content"><a href="guides/installation.html" class="nav-link">Installation</a><details class="nav-section"><summary class="nav-section-title">Advanced</summary><div class="nav-section-content"><a href="guides/advanced/plugins.html" class="nav-link">Plugins</a></div></details></div></details><details class="nav-section"><summary class="nav-section-title">API Reference</summary><div class="nav-section-content"><a href="api/endpoints.html" class="nav-link">Endpoints</a></div></details>
+        <div class="nav-group"><a href="getting-started.html" class="nav-link">Getting Started</a><a href="api-reference.html" class="nav-link">API 参考</a><a href="changelog.html" class="nav-link active">更新日志</a><a href="markdown-guide.html" class="nav-link">Markdown Guide</a><a href="math-examples.html" class="nav-link">Math Formulas</a></div><details class="nav-section"><summary class="nav-section-title">指南</summary><div class="nav-section-content"><a href="guides/installation.html" class="nav-link">安装与配置</a></div></details>
       </div>
     </aside>
 
     <main class="doc-content">
-      <nav class="breadcrumbs"><a href="index.html" class="breadcrumb-link">Home</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Changelog</span></nav>
+      <nav class="breadcrumbs"><a href="index.html" class="breadcrumb-link">Home</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">更新日志</span></nav>
       <article class="prose">
-        <h1 id="changelog"><a class="anchor" href="#changelog">#</a> Changelog</h1>
+        <h1 id="更新日志"><a class="anchor" href="#更新日志">#</a> 更新日志</h1>
 <h2 id="v1-0-0"><a class="anchor" href="#v1-0-0">#</a> v1.0.0</h2>
-<p>Initial release of BeisentDocs.</p>
-<h3 id="added"><a class="anchor" href="#added">#</a> Added</h3>
-<ul><li>Markdown to HTML conversion</li><li>Code syntax highlighting with Highlight.js</li><li>Math formula rendering with KaTeX</li><li>Responsive design with dark/light theme</li><li>Sidebar navigation</li><li>Table of contents generation</li><li>GFM table support</li><li>Task lists</li><li>Admonition blocks (NOTE, TIP, WARNING, IMPORTANT, CAUTION)</li><li>Footnote support</li><li>Auto-generated sample documentation</li><li>Live-reload development server</li><li>File watcher for auto-rebuild</li></ul>
-<h3 id="technical-details"><a class="anchor" href="#technical-details">#</a> Technical Details</h3>
-<pre><code>Language:     Python 3.10+
-Dependencies: None (stdlib only)
-Build time:   &lt; 1s for typical sites
-Output:       Static HTML/CSS/JS</code></pre>
-<blockquote class="admonition admonition-tip"><p class="admonition-title">TIP</p><p>Star the project on GitHub if you find it useful!</p></blockquote>
+<p>BeisentDocs 首个正式版本。</p>
+<h3 id="新增功能"><a class="anchor" href="#新增功能">#</a> 新增功能</h3>
+<ul><li>纯 Python Markdown 转 HTML 解析器（零外部依赖）</li><li>通过 Highlight.js 支持代码语法高亮</li><li>通过 KaTeX 支持数学公式渲染</li><li>GFM 表格（支持左/中/右对齐）</li><li>任务列表（复选框）</li><li>提示块（NOTE、TIP、WARNING、IMPORTANT、CAUTION）</li><li>脚注支持</li><li>自动侧边栏导航生成</li><li>页内目录（TOC）生成</li><li>面包屑导航</li><li>文档卡片网格首页</li><li>YAML frontmatter 元数据</li><li>响应式移动端适配</li><li>内置 HTTP 开发服务器</li><li>文件监听自动重建（watch 模式）</li></ul>
+<h3 id="技术细节"><a class="anchor" href="#技术细节">#</a> 技术细节</h3>
+<pre><code>语言：       Python 3.10+
+外部依赖：   无（仅使用标准库）
+客户端依赖： Highlight.js, KaTeX, Lucide Icons（CDN 加载）
+输出格式：   静态 HTML/CSS/JS</code></pre>
       </article>
       <footer class="doc-footer">
         <p>&copy; 2025 Beisent Lab</p>
@@ -54,7 +53,7 @@ Output:       Static HTML/CSS/JS</code></pre>
     </main>
 
     <aside class="toc-sidebar" id="toc-sidebar">
-      <nav class="toc"><h4>On this page</h4><ul><li style="padding-left:0px"><a href="#changelog" class="toc-link" data-level="1">Changelog</a></li><li style="padding-left:12px"><a href="#v1-0-0" class="toc-link" data-level="2">v1.0.0</a></li><li style="padding-left:24px"><a href="#added" class="toc-link" data-level="3">Added</a></li><li style="padding-left:24px"><a href="#technical-details" class="toc-link" data-level="3">Technical Details</a></li></ul></nav>
+      <nav class="toc"><h4>On this page</h4><ul><li style="padding-left:0px"><a href="#更新日志" class="toc-link" data-level="1">更新日志</a></li><li style="padding-left:12px"><a href="#v1-0-0" class="toc-link" data-level="2">v1.0.0</a></li><li style="padding-left:24px"><a href="#新增功能" class="toc-link" data-level="3">新增功能</a></li><li style="padding-left:24px"><a href="#技术细节" class="toc-link" data-level="3">技术细节</a></li></ul></nav>
     </aside>
   </div>
 
