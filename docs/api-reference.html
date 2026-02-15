@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Reference - BeisentDocs</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body class="doc-page">
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand">BeisentDocs</a>
+      <nav class="navbar-nav">
+        <a href="https://github.com/beisent">GitHub</a>
+      </nav>
+      <div class="navbar-actions">
+        <button id="sidebar-toggle" class="icon-btn" title="Toggle sidebar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="doc-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="nav-group"><a href="api-reference.html" class="nav-link active">API Reference</a><a href="changelog.html" class="nav-link">Changelog</a><a href="getting-started.html" class="nav-link">Getting Started</a><a href="markdown-guide.html" class="nav-link">Markdown Guide</a><a href="math-examples.html" class="nav-link">Math Formulas</a></div><details class="nav-section"><summary class="nav-section-title">Guides</summary><div class="nav-section-content"><a href="guides/installation.html" class="nav-link">Installation</a><details class="nav-section"><summary class="nav-section-title">Advanced</summary><div class="nav-section-content"><a href="guides/advanced/plugins.html" class="nav-link">Plugins</a></div></details></div></details><details class="nav-section"><summary class="nav-section-title">API Reference</summary><div class="nav-section-content"><a href="api/endpoints.html" class="nav-link">Endpoints</a></div></details>
+      </div>
+    </aside>
+
+    <main class="doc-content">
+      <nav class="breadcrumbs"><a href="index.html" class="breadcrumb-link">Home</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">API Reference</span></nav>
+      <article class="prose">
+        <h1 id="api-reference"><a class="anchor" href="#api-reference">#</a> API Reference</h1>
+<h2 id="markdownparser"><a class="anchor" href="#markdownparser">#</a> MarkdownParser</h2>
+<p>The core Markdown parser class.</p>
+<h3 id="constructor"><a class="anchor" href="#constructor">#</a> Constructor</h3>
+<pre><code class="language-python">parser = MarkdownParser()</code></pre>
+<h3 id="methods"><a class="anchor" href="#methods">#</a> Methods</h3>
+<h4 id="parse-text-str-str"><a class="anchor" href="#parse-text-str-str">#</a> <code>parse(text: str) -> str</code></h4>
+<p>Converts Markdown text to HTML.</p>
+<pre><code class="language-python">html = parser.parse(&quot;# Hello World&quot;)
+# &lt;h1 id=&quot;hello-world&quot;&gt;...&lt;/h1&gt;</code></pre>
+<h4 id="supported-extensions"><a class="anchor" href="#supported-extensions">#</a> Supported Extensions</h4>
+<div class="table-wrapper"><table><thead><tr><th style="text-align:left">Extension</th><th style="text-align:center">Syntax</th><th style="text-align:left">Description</th></tr></thead><tbody><tr><td style="text-align:left">Fenced code</td><td style="text-align:center"><code> </code>`<code> </code></td><td style="text-align:left">Code blocks with language</td></tr><tr><td style="text-align:left">Math (inline)</td><td style="text-align:center"><code><span class="math-inline">\(...\)</span></code></td><td style="text-align:left">Inline math formulas</td></tr><tr><td style="text-align:left">Math (block)</td><td style="text-align:center"><code>$$...$$</code></td><td style="text-align:left">Block math formulas</td></tr><tr><td style="text-align:left">Tables</td><td style="text-align:center">`\</td><td style="text-align:left">... \</td><td>`</td><td>GFM-style tables</td></tr><tr><td style="text-align:left">Task lists</td><td style="text-align:center"><code>- [x]</code></td><td style="text-align:left">Checkboxes</td></tr><tr><td style="text-align:left">Strikethrough</td><td style="text-align:center"><code><del>text</del></code></td><td style="text-align:left">Deleted text</td></tr><tr><td style="text-align:left">Highlight</td><td style="text-align:center"><code><mark>text</mark></code></td><td style="text-align:left">Highlighted text</td></tr><tr><td style="text-align:left">Admonitions</td><td style="text-align:center"><code>> [!TYPE]</code></td><td style="text-align:left">NOTE, TIP, WARNING, etc.</td></tr><tr><td style="text-align:left">Footnotes</td><td style="text-align:center"><code>[^key]</code></td><td style="text-align:left">Reference footnotes</td></tr></tbody></table></div>
+<h2 id="sitebuilder"><a class="anchor" href="#sitebuilder">#</a> SiteBuilder</h2>
+<p>The site generator class.</p>
+<h3 id="constructor"><a class="anchor" href="#constructor">#</a> Constructor</h3>
+<pre><code class="language-python">builder = SiteBuilder(
+    docs_dir=&quot;docs&quot;,      # Markdown source directory
+    dist_dir=&quot;dist&quot;,      # Output directory
+    static_dir=&quot;static&quot;,  # Static assets
+    templates_dir=&quot;templates&quot;  # HTML templates
+)</code></pre>
+<h3 id="methods"><a class="anchor" href="#methods">#</a> Methods</h3>
+<h4 id="build"><a class="anchor" href="#build">#</a> <code>build()</code></h4>
+<p>Builds the entire site. Collects all <code>.md</code> files from <code>docs/</code>, converts them, and writes the output to <code>dist/</code>.</p>
+<pre><code class="language-python">builder = SiteBuilder()
+builder.build()</code></pre>
+<blockquote class="admonition admonition-note"><p class="admonition-title">NOTE</p><p>If no <code>.md</code> files exist in <code>docs/</code>, sample documents are auto-generated.</p></blockquote>
+<h2 id="cli-usage"><a class="anchor" href="#cli-usage">#</a> CLI Usage</h2>
+<pre><code class="language-bash"># Build the site
+python build.py
+
+# Serve locally
+python build.py serve
+
+# Watch mode (auto-rebuild)
+python build.py watch</code></pre>
+      </article>
+      <footer class="doc-footer">
+        <p>&copy; 2025 Beisent Lab</p>
+      </footer>
+    </main>
+
+    <aside class="toc-sidebar" id="toc-sidebar">
+      <nav class="toc"><h4>On this page</h4><ul><li style="padding-left:0px"><a href="#api-reference" class="toc-link" data-level="1">API Reference</a></li><li style="padding-left:12px"><a href="#markdownparser" class="toc-link" data-level="2">MarkdownParser</a></li><li style="padding-left:24px"><a href="#constructor" class="toc-link" data-level="3">Constructor</a></li><li style="padding-left:24px"><a href="#methods" class="toc-link" data-level="3">Methods</a></li><li style="padding-left:36px"><a href="#parse-text-str-str" class="toc-link" data-level="4">`parse(text: str) -> str`</a></li><li style="padding-left:36px"><a href="#supported-extensions" class="toc-link" data-level="4">Supported Extensions</a></li><li style="padding-left:12px"><a href="#sitebuilder" class="toc-link" data-level="2">SiteBuilder</a></li><li style="padding-left:24px"><a href="#constructor" class="toc-link" data-level="3">Constructor</a></li><li style="padding-left:24px"><a href="#methods" class="toc-link" data-level="3">Methods</a></li><li style="padding-left:36px"><a href="#build" class="toc-link" data-level="4">`build()`</a></li><li style="padding-left:12px"><a href="#cli-usage" class="toc-link" data-level="2">CLI Usage</a></li></ul></nav>
+    </aside>
+  </div>
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <script src="static/js/main.js"></script>
+  <script>
+    hljs.highlightAll();
+    renderMathInElement(document.querySelector('.prose'), {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '\\(', right: '\\)', display: false},
+      ],
+      throwOnError: false
+    });
+  </script>
+</body>
+</html>
