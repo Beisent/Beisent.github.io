@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="实数集 R 区别于其他数集的最核心的两个特征是：**稠密性** 与 **连续性**。">
+  <meta property="og:title" content="实数 ">
+  <meta property="og:description" content="实数集 R 区别于其他数集的最核心的两个特征是：**稠密性** 与 **连续性**。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://beisent.github.io/Math/Calculus/01.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="实数 ">
+  <meta name="twitter:description" content="实数集 R 区别于其他数集的最核心的两个特征是：**稠密性** 与 **连续性**。">
   <title>实数  - BeisentDocs</title>
   <link rel="stylesheet" href="../../static/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
@@ -19,6 +27,16 @@
         <a href="https://github.com/beisent">GitHub</a>
       </nav>
       <div class="navbar-actions">
+        <button id="search-toggle" class="icon-btn" title="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+        <button id="theme-toggle" class="icon-btn" title="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
         <button id="sidebar-toggle" class="icon-btn" title="Toggle sidebar">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
@@ -53,8 +71,9 @@
 <ul><li><strong>A组：</strong> 所有平方小于2的正有理数（及负有理数）；</li><li><strong>B组：</strong> 所有平方大于2的正有理数。</li></ul>
 <p>当我们试图寻找这一“刀”切在哪个有理数上时，会惊奇地发现：在有理数范围内，根本没有这个数，这就说明有理数是不完备的，他并不连续。</p>
       </article>
+      <nav class="doc-nav"><a href="../index.html" class="doc-nav-link doc-nav-prev"><span class="doc-nav-label">← 上一篇</span><span class="doc-nav-title">数学板块  </span></a><a href="index.html" class="doc-nav-link doc-nav-next"><span class="doc-nav-label">下一篇 →</span><span class="doc-nav-title">微积分</span></a></nav>
       <footer class="doc-footer">
-        <p>&copy; 2025 Beisent Lab</p>
+        <p>&copy; 2026 Beisent Lab</p>
       </footer>
     </main>
 
@@ -64,6 +83,26 @@
   </div>
 
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="search-modal">
+    <div class="search-modal-content">
+      <div class="search-input-wrapper">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input type="text" id="search-input" placeholder="搜索文档..." autocomplete="off">
+        <button id="search-close" class="search-close">ESC</button>
+      </div>
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </div>
+
+  <button id="back-to-top" class="back-to-top" title="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
 
   <script src="../../static/js/main.js"></script>
   <script>
