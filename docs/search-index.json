@@ -10,8 +10,15 @@
     "title": "C++",
     "description": "接下来可能会推出",
     "url": "Computer/C++/index.html",
-    "content": "# C++\n接下来可能会推出\n手搓线程池手搓日志库什么是生产消费模型手搓内存池",
-    "excerpt": "# C++\n接下来可能会推出\n手搓线程池手搓日志库什么是生产消费模型手搓内存池"
+    "content": "# C++\n接下来可能会推出\n多线程编程入门 手搓线程池手搓日志库什么是生产消费模型手搓内存池",
+    "excerpt": "# C++\n接下来可能会推出\n多线程编程入门 手搓线程池手搓日志库什么是生产消费模型手搓内存池"
+  },
+  {
+    "title": "多线程编程入门",
+    "description": "多线程编程是一个非常强大的功能，现代 CPU 通常有多个核心，如果你不使用多线程编程那么所有的代码都会跑在同一个 CPU 核心上，其他的核心都被闲置极大的浪费的计算资源。",
+    "url": "Computer/C++/Multithread/01.html",
+    "content": "# 多线程编程入门\n多线程编程是一个非常强大的功能，现代 CPU 通常有多个核心，如果你不使用多线程编程那么所有的代码都会跑在同一个 CPU 核心上，其他的核心都被闲置极大的浪费的计算资源。\n# 创建一个线程\n在 C++11 及以上版本中使用多线程编程非常简单，C++11 标准提供了强大的 std::thread\n我们可以这样创建一个线程并且传递一个函数指针作为这个线程的任务，这个函数将会在创建的子线程上运行\n#include &lt;iostream&gt;\n#include &lt;thread&gt;\n\nvoid print() { std::cout &lt;&lt; &quot;我工作在子线程上！！&quot; &lt;&lt; std::endl; }\n\nint main() {\n  std::thread t1(print);\n  std::cout &lt;&lt; &quot;主线程结束！&quot; &lt;&lt; std::endl;\n  return 0;\n}\n编译再运行后会发现并没有按照我们的心意运行\n主线程结束！\nterminate called without an active exception\n我工作在子线程上！！\n[1]    30674 IOT instruction (core dumped)  ./a.out\n这是因为我们将任务交给子线程后主线程还会继续执行，子线程的创建和调用还会使用很多时间，但是主线程依旧继续执行并结束，子线程依旧在后台执行。   通常情况下主线程的生命周期都会比子线程长，所以我们需要让子线程等待子线程执行完毕再继续执行下面的代码，这时候我们可以这么写。\n#include &lt;iostream&gt;\n#include &lt;thread&gt;\n\nvoid print() { std::cout &lt;&lt; &quot;我工作在子线程上！！&quot; &lt;&lt; std::endl; }\n\nint main() {\n  std::thread t1(print);\n  t1.join();\n  std::cout &lt;&lt; &quot;主线程结束！&quot; &lt;&lt; std::endl;\n  return 0;\n}\n此时再执行会发现正常\n我工作在子线程上！！\n",
+    "excerpt": "# 多线程编程入门\n多线程编程是一个非常强大的功能，现代 CPU 通常有多个核心，如果你不使用多线程编程那么所有的代码都会跑在同一个 CPU 核心上，其他的核心都被闲置极大的浪费的计算资源。\n# 创建一个线程\n在 C++11 及以上版本中使用多线程编程非常简单，C++11 标准提供了强大的 std::thread\n我们可以这样创建一个线程并且传递一个函数指针作为这个线程的任务，这个函数将会在创建的..."
   },
   {
     "title": "Rust 入门",
