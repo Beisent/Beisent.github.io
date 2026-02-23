@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="实数集 R 区别于其他数集的最核心的两个特征是：**稠密性** 与 **连续性**。">
-  <meta property="og:title" content="实数 ">
-  <meta property="og:description" content="实数集 R 区别于其他数集的最核心的两个特征是：**稠密性** 与 **连续性**。">
+  <meta name="description" content="实数集的稠密性与连续性，戴德金分割">
+  <meta property="og:title" content="实数">
+  <meta property="og:description" content="实数集的稠密性与连续性，戴德金分割">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://beisent.github.io/Math/Calculus/01.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="实数 ">
-  <meta name="twitter:description" content="实数集 R 区别于其他数集的最核心的两个特征是：**稠密性** 与 **连续性**。">
-  <title>实数  - BeisentDocs</title>
+  <meta name="twitter:title" content="实数">
+  <meta name="twitter:description" content="实数集的稠密性与连续性，戴德金分割">
+  <title>实数 - BeisentDocs</title>
   <link rel="stylesheet" href="../../static/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css" disabled>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -47,12 +48,12 @@
   <div class="doc-layout">
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-inner">
-        <div class="nav-group"></div><details class="nav-section"><summary class="nav-section-title">Computer</summary><div class="nav-section-content"><a href="../../Computer/index.html" class="nav-link">计算机板块</a><details class="nav-section"><summary class="nav-section-title">C++</summary><div class="nav-section-content"><a href="../../Computer/C++/index.html" class="nav-link">C++</a><details class="nav-section"><summary class="nav-section-title">Multithread</summary><div class="nav-section-content"><a href="../../Computer/C++/Multithread/01.html" class="nav-link">多线程编程入门</a></div></details></div></details><details class="nav-section"><summary class="nav-section-title">Cg</summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title">Physicssimulate</summary><div class="nav-section-content"></div></details><details class="nav-section"><summary class="nav-section-title">Rendering</summary><div class="nav-section-content"></div></details></div></details><details class="nav-section"><summary class="nav-section-title">Rust</summary><div class="nav-section-content"><a href="../../Computer/Rust/基本语法.html" class="nav-link">Rust 入门</a></div></details></div></details><details class="nav-section" open><summary class="nav-section-title">Math</summary><div class="nav-section-content"><a href="../index.html" class="nav-link">数学板块  </a><details class="nav-section" open><summary class="nav-section-title">Calculus</summary><div class="nav-section-content"><a href="01.html" class="nav-link active">实数 </a><a href="index.html" class="nav-link">微积分</a></div></details><details class="nav-section"><summary class="nav-section-title">Linearalgebra</summary><div class="nav-section-content"><a href="../LinearAlgebra/index.html" class="nav-link">线性代数</a></div></details><details class="nav-section"><summary class="nav-section-title">Ode</summary><div class="nav-section-content"><a href="../ODE/index.html" class="nav-link">常微分方程</a></div></details></div></details><details class="nav-section"><summary class="nav-section-title">Physics</summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title">Classicalmechanics</summary><div class="nav-section-content"><a href="../../Physics/ClassicalMechanics/index.html" class="nav-link">理论力学</a><details class="nav-section"><summary class="nav-section-title">质点运动学</summary><div class="nav-section-content"><a href="../../Physics/ClassicalMechanics/质点运动学/index.html" class="nav-link">质点运动学</a></div></details></div></details></div></details>
+        <div class="nav-group"></div><details class="nav-section"><summary class="nav-section-title"><a href="../../Computer/index.html" class="nav-section-link">计算机</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../../Computer/C++/index.html" class="nav-section-link">C++</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../../Computer/C++/Multithread/index.html" class="nav-section-link">Multithread</a></summary><div class="nav-section-content"><a href="../../Computer/C++/Multithread/01.html" class="nav-link">多线程编程入门</a><a href="../../Computer/C++/Multithread/02.html" class="nav-link">生产消费者模型</a></div></details></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../../Computer/Rust/index.html" class="nav-section-link">Rust</a></summary><div class="nav-section-content"><a href="../../Computer/Rust/基本语法.html" class="nav-link">Rust 入门</a></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../../Computer/CG/index.html" class="nav-section-link">Cg</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../../Computer/CG/physicsSimulate/index.html" class="nav-section-link">Physicssimulate</a></summary><div class="nav-section-content"></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../../Computer/CG/Rendering/index.html" class="nav-section-link">Rendering</a></summary><div class="nav-section-content"></div></details></div></details></div></details><details class="nav-section" open><summary class="nav-section-title"><a href="../index.html" class="nav-section-link">数学</a></summary><div class="nav-section-content"><details class="nav-section" open><summary class="nav-section-title"><a href="index.html" class="nav-section-link">微积分</a></summary><div class="nav-section-content"><a href="01.html" class="nav-link active">实数</a></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../LinearAlgebra/index.html" class="nav-section-link">线性代数</a></summary><div class="nav-section-content"></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../ODE/index.html" class="nav-section-link">常微分方程</a></summary><div class="nav-section-content"></div></details></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../../Physics/index.html" class="nav-section-link">物理</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../../Physics/ClassicalMechanics/index.html" class="nav-section-link">理论力学</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../../Physics/ClassicalMechanics/质点运动学/index.html" class="nav-section-link">质点运动学</a></summary><div class="nav-section-content"></div></details></div></details></div></details>
       </div>
     </aside>
 
     <main class="doc-content">
-      <nav class="breadcrumbs"><a href="../../index.html" class="breadcrumb-link">Home</a><span class="breadcrumb-sep">/</span><a href="../index.html" class="breadcrumb-link">Math</a><span class="breadcrumb-sep">/</span><a href="index.html" class="breadcrumb-link">Calculus</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">实数 </span></nav>
+      <nav class="breadcrumbs"><a href="../../index.html" class="breadcrumb-link">Home</a><span class="breadcrumb-sep">/</span><a href="../index.html" class="breadcrumb-link">数学</a><span class="breadcrumb-sep">/</span><a href="index.html" class="breadcrumb-link">微积分</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">实数</span></nav>
       <article class="prose">
         <h1 id="实数"><a class="anchor" href="#实数">#</a> 实数</h1>
 <p>实数集 R 区别于其他数集的最核心的两个特征是：<strong>稠密性</strong> 与 <strong>连续性</strong>。</p>
@@ -71,7 +72,7 @@
 <ul><li><strong>A组：</strong> 所有平方小于2的正有理数（及负有理数）；</li><li><strong>B组：</strong> 所有平方大于2的正有理数。</li></ul>
 <p>当我们试图寻找这一“刀”切在哪个有理数上时，会惊奇地发现：在有理数范围内，根本没有这个数，这就说明有理数是不完备的，他并不连续。</p>
       </article>
-      <nav class="doc-nav"><a href="../index.html" class="doc-nav-link doc-nav-prev"><span class="doc-nav-label">← 上一篇</span><span class="doc-nav-title">数学板块  </span></a><a href="index.html" class="doc-nav-link doc-nav-next"><span class="doc-nav-label">下一篇 →</span><span class="doc-nav-title">微积分</span></a></nav>
+      <nav class="doc-nav"><a href="../../Computer/Rust/基本语法.html" class="doc-nav-link doc-nav-prev"><span class="doc-nav-label">← 上一篇</span><span class="doc-nav-title">Rust 入门</span></a></nav>
       <footer class="doc-footer">
         <p>&copy; 2026 Beisent Lab</p>
       </footer>
