@@ -7,7 +7,7 @@
   <meta property="og:title" content="Rust 入门">
   <meta property="og:description" content="Rust 基本语法入门，涵盖变量、所有权、引用、控制流、结构体、枚举与 Trait">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://beisent.github.io/Computer/Rust/基本语法.html">
+  <meta property="og:url" content="https://beisent.github.io/Computer/Rust/01.html">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Rust 入门">
   <meta name="twitter:description" content="Rust 基本语法入门，涵盖变量、所有权、引用、控制流、结构体、枚举与 Trait">
@@ -48,7 +48,7 @@
   <div class="doc-layout">
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-inner">
-        <div class="nav-group"></div><details class="nav-section" open><summary class="nav-section-title"><a href="../index.html" class="nav-section-link">计算机</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../C++/index.html" class="nav-section-link">C++</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../C++/Multithread/index.html" class="nav-section-link">Multithread</a></summary><div class="nav-section-content"><a href="../C++/Multithread/01.html" class="nav-link">多线程编程入门</a><a href="../C++/Multithread/02.html" class="nav-link">生产消费者模型</a></div></details></div></details><details class="nav-section" open><summary class="nav-section-title"><a href="index.html" class="nav-section-link">Rust</a></summary><div class="nav-section-content"><a href="基本语法.html" class="nav-link active">Rust 入门</a></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../CG/index.html" class="nav-section-link">Cg</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../CG/physicsSimulate/index.html" class="nav-section-link">Physicssimulate</a></summary><div class="nav-section-content"></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../CG/Rendering/index.html" class="nav-section-link">Rendering</a></summary><div class="nav-section-content"></div></details></div></details></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../../Math/index.html" class="nav-section-link">数学</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../../Math/Calculus/index.html" class="nav-section-link">微积分</a></summary><div class="nav-section-content"><a href="../../Math/Calculus/01.html" class="nav-link">实数</a></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../../Math/LinearAlgebra/index.html" class="nav-section-link">线性代数</a></summary><div class="nav-section-content"></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../../Math/ODE/index.html" class="nav-section-link">常微分方程</a></summary><div class="nav-section-content"></div></details></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../../Physics/index.html" class="nav-section-link">物理</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../../Physics/ClassicalMechanics/index.html" class="nav-section-link">理论力学</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../../Physics/ClassicalMechanics/质点运动学/index.html" class="nav-section-link">质点运动学</a></summary><div class="nav-section-content"></div></details></div></details></div></details>
+        <div class="nav-group"></div><details class="nav-section" open><summary class="nav-section-title"><a href="../index.html" class="nav-section-link">计算机</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../CPP/index.html" class="nav-section-link">C++</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../CPP/Multithread/index.html" class="nav-section-link">Multithread</a></summary><div class="nav-section-content"><a href="../CPP/Multithread/01.html" class="nav-link">多线程编程入门</a><a href="../CPP/Multithread/02.html" class="nav-link">生产消费者模型</a></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../CPP/QT/index.html" class="nav-section-link">Qt</a></summary><div class="nav-section-content"></div></details></div></details><details class="nav-section" open><summary class="nav-section-title"><a href="index.html" class="nav-section-link">Rust</a></summary><div class="nav-section-content"><a href="01.html" class="nav-link active">Rust 入门</a></div></details></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../../Math/index.html" class="nav-section-link">数学</a></summary><div class="nav-section-content"><details class="nav-section"><summary class="nav-section-title"><a href="../../Math/Calculus/index.html" class="nav-section-link">微积分</a></summary><div class="nav-section-content"><a href="../../Math/Calculus/01.html" class="nav-link">实数</a></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../../Math/LinearAlgebra/index.html" class="nav-section-link">线性代数</a></summary><div class="nav-section-content"></div></details><details class="nav-section"><summary class="nav-section-title"><a href="../../Math/ODE/index.html" class="nav-section-link">常微分方程</a></summary><div class="nav-section-content"></div></details></div></details>
       </div>
     </aside>
 
@@ -81,7 +81,7 @@
 }</code></pre>
 <h2 id="引用与借用"><a class="anchor" href="#引用与借用">#</a> 引用与借用</h2>
 <p>但如果我们每次传参都要移动所有权，那代码就太难写了。引用(或者叫借用)允许你使用值但不取得所有权。</p>
-<p>引用有以下规则： 同时只能有一个可变引用<code>&mut T</code> 可以同时有多个不可变引用<code>&T</code></p>
+<p>引用有以下规则： 同时只能有一个可变引用<code>&amp;mut T</code> 可以同时有多个不可变引用<code>&amp;T</code></p>
 <pre><code class="language-Rust">fn get_length(str: &amp;String) -&gt; usize{
     str.len()
 }// 离开作用域后str不再指向s1的内存
@@ -172,7 +172,7 @@ fn make_it_speak&lt;T: Speak&gt;(animal: T) {
     println!(&quot;{}&quot;, animal.say_hello());
 }</code></pre>
       </article>
-      <nav class="doc-nav"><a href="../C++/Multithread/02.html" class="doc-nav-link doc-nav-prev"><span class="doc-nav-label">← 上一篇</span><span class="doc-nav-title">生产消费者模型</span></a><a href="../../Math/Calculus/01.html" class="doc-nav-link doc-nav-next"><span class="doc-nav-label">下一篇 →</span><span class="doc-nav-title">实数</span></a></nav>
+      <nav class="doc-nav"><a href="../CPP/Multithread/02.html" class="doc-nav-link doc-nav-prev"><span class="doc-nav-label">← Previous</span><span class="doc-nav-title">生产消费者模型</span></a><a href="../../Math/Calculus/01.html" class="doc-nav-link doc-nav-next"><span class="doc-nav-label">Next →</span><span class="doc-nav-title">实数</span></a></nav>
       <footer class="doc-footer">
         <p>&copy; 2026 Beisent Lab</p>
       </footer>
